@@ -31,9 +31,9 @@ class Mylearning_rate():
     def exponential_attenuation(self, epoch):
         # 指数衰减
         if epoch < 10:
-            return 0.001
-        else:
-            return 0.001 * tf.math.exp(0.1 * (10 - epoch))
+            return 0.01
+        else:   # round(0.01 * math.exp(0.15 * (10 - i)), 5)
+            return round(0.01 * tf.math.exp(0.15 * (10 - epoch)), 5)
 
     def cos_attenuation(self, epoch, init_lr=0.05, period = 10):
         '''
